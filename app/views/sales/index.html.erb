@@ -1,1 +1,15 @@
 <p>List your sales here</p>
+
+<% @employees.each do |employee| %>
+<p>
+<% if employee.last_name == "Bobby" %>
+  <span style="background-color:yellow">
+  <%= employee.first_name%>
+  <%= employee.last_name%></span>
+<% else %>
+  <%= employee.first_name%>
+  <%= employee.last_name%>
+<% end %>
+<%= employee.determine_commission unless employee.determine_commission == 0 %>
+</p>
+<% end %>

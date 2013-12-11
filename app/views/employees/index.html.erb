@@ -1,1 +1,23 @@
-<p>List your employees here</p>
+<p>List your employees here:</p>
+
+<% @employees.each do |employee| %>
+  <p>
+  <% if employee.title == "Commission" || employee.title == "Quota" %>
+  <span style="color:green;font-weight:bold">
+    <%= employee.first_name %>
+    <%= employee.last_name %></span>
+  <% elsif employee.title == "Owner"%>
+    <span style="font-size:1.5em;background-color:yellow">
+    <%= employee.first_name %>
+    <%= employee.last_name %></span>
+  <% else %>
+    <p>
+    <%= employee.first_name %>
+    <%= employee.last_name %>
+  <% end %>
+    <%= employee.title %>
+    <%= employee.salary %>
+    <%= employee.net_pay %>
+  <p>
+
+<% end %>
